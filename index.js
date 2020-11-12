@@ -536,7 +536,7 @@ const get = require('got')
     `, MessageType.text);
   });
   }
-   if (text.includes("!pict cewek"))
+ if (text.includes("!pict cewek"))
    {
     var items = ["ullzang girl", "cewe cantik", "hijab cantik", "korean girl", "remaja cantik", "cewek korea", "cewek jepang", "Sma cantik", "cewe tiktok", "Tiktok cantik"];
     var cewe = items[Math.floor(Math.random() * items.length)];
@@ -564,6 +564,65 @@ const get = require('got')
     
     });
    }  
+	
+	if (text.includes("hijab"))
+   {
+    var items = ["cewe hijab", "Cewe berhijab", "cewe hijab cantik"];
+    var hijab = items[Math.floor(Math.random() * items.length)];
+    var url = "https://api.fdci.se/rep.php?gambar=" + hijab;
+    
+    axios.get(url)
+      .then((result) => {
+        var b = JSON.parse(JSON.stringify(result.data));
+        var hijabb =  b[Math.floor(Math.random() * b.length)];
+        imageToBase64(hijabb) // Path to the image
+        .then(
+            (response) => {
+	var buf = Buffer.from(response, 'base64'); // Ta-da	
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error); // Logs an error if there was one
+            }
+        )
+    
+    });
+   }  
+	
+if (text.includes("!meme"))
+   {
+    var items = ["Dark meme", "Meme indonesia", "meme"];
+    var meme = items[Math.floor(Math.random() * items.length)];
+    var url = "https://api.fdci.se/rep.php?gambar=" + meme;
+    
+    axios.get(url)
+      .then((result) => {
+        var b = JSON.parse(JSON.stringify(result.data));
+        var memes =  b[Math.floor(Math.random() * b.length)];
+        imageToBase64(memes) // Path to the image
+        .then(
+            (response) => {
+	var buf = Buffer.from(response, 'base64'); // Ta-da	
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error); // Logs an error if there was one
+            }
+        )
+    
+    });
+   }  
+	
  if (text.includes("!pict jepang"))
  {
   var items = ["cewek jepang", "jepang cantik"];
@@ -573,8 +632,8 @@ const get = require('got')
 	axios.get(url)
       .then((result) => {
         var z = JSON.parse(JSON.stringify(result.data));
-        var cowok =  z[Math.floor(Math.random() * z.length)];
-        imageToBase64(cowok) 
+        var jepang =  z[Math.floor(Math.random() * z.length)];
+        imageToBase64(jepang) 
         .then(
             (response) => {
   var buf = Buffer.from(response, 'base64'); 
