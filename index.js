@@ -538,7 +538,7 @@ const get = require('got')
   }
    if (text.includes("!pict cewek"))
    {
-    var items = ["ullzang girl", "cewe cantik", "hijab cantik", "korean girl", "remaja cantik", "cewek korea", "cewek jepang"];
+    var items = ["ullzang girl", "cewe cantik", "hijab cantik", "korean girl", "remaja cantik", "cewek korea", "cewek jepang", "Sma cantik", "cewe tiktok", "Tiktok cantik"];
     var cewe = items[Math.floor(Math.random() * items.length)];
     var url = "https://api.fdci.se/rep.php?gambar=" + cewe;
     
@@ -625,7 +625,7 @@ const get = require('got')
 
 if (text.includes("!animepict"))
    {
-    var items = ["anime girl", "anime cantik", "anime", "anime aesthetic", "anime hd", "gambar anime hd"];
+    var items = ["anime girl", "anime cantik", "anime", "loli"];
     var nime = items[Math.floor(Math.random() * items.length)];
     var url = "https://api.fdci.se/rep.php?gambar=" + nime;
     
