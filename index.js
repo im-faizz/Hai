@@ -563,9 +563,35 @@ const get = require('got')
         )
     
     });
+   }  
+ if (text.includes("!pict jepang"))
+ {
+  var items = ["cewek jepang", "jepang cantik"];
+  var cewekJepang = items[Math.floor(Math.random() * items.length)];
+  var url = "https://api.fdci.se/rep.php?gambar=" + cewekJepang;
+	 
+	axios.get(url)
+      .then((result) => {
+        var z = JSON.parse(JSON.stringify(result.data));
+        var cowok =  z[Math.floor(Math.random() * z.length)];
+        imageToBase64(cowok) 
+        .then(
+            (response) => {
+  var buf = Buffer.from(response, 'base64'); 
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error);
+            }
+        )
     
-	
-	
+    });
+    }
 	
 	
    if (text.includes("!pict cowok"))
