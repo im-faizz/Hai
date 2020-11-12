@@ -565,7 +565,7 @@ const get = require('got')
     });
    }  
 	
-	if (text.includes("hijab"))
+	if (text.includes("!hijab"))
    {
     var items = ["cewe hijab", "Cewe berhijab", "cewe hijab cantik"];
     var hijab = items[Math.floor(Math.random() * items.length)];
