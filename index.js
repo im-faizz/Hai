@@ -14,7 +14,7 @@ const tambahan = require("./lib/tambahan.js")
 const donasi = require("./lib/donasi.js");
 const info = require("./lib/info.js");
 /////////////////
-const BotName = 'Test Bot'; 
+const BotName = 'F BOT'; 
 const instagram = 'https://instagram.com/faizz._03'; 
 const whatsapp = 'wa.me/6289668729364'; 
 const kapanbotaktif = 'kapan kapan'; 
@@ -478,7 +478,7 @@ const get = require('got')
     var meninggal = (body[0]['meninggal']);
     var dirawat = (body[0]['dirawat']);
     console.log(body[0]['name'])
-    conn.sendMessage(id,`ðŸ˜­ðŸ¤’DATA WABAH COVID-19 TERBARU DI INDONESIAðŸ˜”ðŸ˜Š\n\nðŸ˜”Positif ==> ${positif} \nðŸ˜ŠSembuh ==> ${sembuh} \nðŸ˜­Meninggal ==> ${meninggal}\nðŸ¤’Dirawat ==> ${dirawat}`, MessageType.text);
+    conn.sendMessage(id,"’DATA WABAH COVID-19 TERBARU DI INDONESIA”Positif ==> ${positif} \Sembuh ==> ${sembuh} \­Meninggal ==> ${meninggal}\’Dirawat ==> ${dirawat}`, MessageType.text);
 }
    if (text.includes("!quotes"))
    {
@@ -740,12 +740,12 @@ if (text.includes("!animepict"))
     
     });
     }
- else if (text.includes("!ttsid")) {
+  else if (text.includes("!tts")) {
   var teks = text.split("!ttsid ")[1];
   var path = require('path');
   var text1 = teks.slice(6);
   text1 = suara;
-  var suara = text.replace(/#ttsid/g, text1);
+  var suara = text.replace(/!ttsid/g, text1);
   var filepath = 'mp3/bacot.wav';
   
   
@@ -759,13 +759,15 @@ gtts.save(filepath, suara, function() {
 await new Promise(resolve => setTimeout(resolve, 500));
 
 	if(suara.length > 200){ // check longness of text, because otherways google translate will give me a empty file
-  conn.sendMessage("Text kepanjangan bro!")
+  msg.reply("Text to long, split in text of 200 characters")
 }else{
 
 const buffer = fs.readFileSync(filepath)
 	conn.sendMessage(id , buffer , MessageType.audio);
 
 };
+
+
 }
 if (text.includes("!lirik")){
 	const teks = text.split("!lirik")[1]
