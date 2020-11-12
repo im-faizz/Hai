@@ -563,8 +563,11 @@ const get = require('got')
         )
     
     });
-    }
-
+    
+	
+	
+	
+	
    if (text.includes("!pict cowok"))
    {
     var items = ["cowo ganteng", "cogan", "korean boy", "chinese boy", "japan boy", "cowok indo ganteng", "cowok korea"];
