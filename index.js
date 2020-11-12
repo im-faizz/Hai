@@ -170,6 +170,9 @@ else if (text == 'TEST')
 {
   conn.sendMessage(id, tambahan.test, MessageType.text);
 }
+else if (text == '!hentai')
+  conn.sendMessage(id, tambahan.hentai, MessageType.text);
+}
 // Fitur
 if(text.includes("!cek")){
 var num = text.replace(/!cek/ , "")
