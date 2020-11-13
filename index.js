@@ -13,6 +13,7 @@ const menu = require("./lib/menu.js");
 const tambahan = require("./lib/tambahan.js")
 const donasi = require("./lib/donasi.js");
 const info = require("./lib/info.js");
+const yts = require("./lib/cmd.js");
 /////////////////
 const BotName = 'F BOT'; 
 const instagram = 'https://instagram.com/faizz._03'; 
@@ -225,67 +226,6 @@ if (text.includes("!nulis"))
          })
    }
 
-
-if (text.includes("!ytmp3")){
-const teks = text.replace(/!ytmp3 /, "")
-axios.get(`https://st4rz.herokuapp.com/api/yta?url=${teks}`).then((res) => {
-    let hasil = `Audio telah tersedia pada link di bawah, silahkan klik link dan download hasilnya\nðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡\n\nJudul: ${res.data.title}\n\nUkuran audio: ${res.data.filesize}\n\nLink: ${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
-
-if (text.includes("!yt")){
-const teks = text.replace(/!yt /, "")
-axios.get(`https://st4rz.herokuapp.com/api/ytv?url=${teks}`).then((res) => {
-    let hasil = `Video telah tersedia pada link di bawah, silahkan klik link dan download hasilnya\nðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡\n\nJudul: ${res.data.title}\n\nUkuran video: ${res.data.filesize}\n\nLink: ${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
-
-if (text.includes("!fb")){
-const teks = text.replace(/!fb /, "")
-axios.get(`https://mhankbarbar.herokuapp.com/api/epbe?url=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
-    let hasil = `Berhasil! silahkan klik link di bawah untuk mendownload hasilnya!\nðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡\n\nJudul: ${res.data.title}\n\nUkuran: ${res.data.filesize}\n\nLink: ${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
-
-if (text.includes("!ig")){
-const teks = text.replace(/!ig /, "")
-axios.get(`https://st4rz.herokuapp.com/api/ig?url=${teks}`).then((res) => {
-    let hasil = `Berhasil! silahkan klik link di bawah untuk mendownload hasilnya!\nðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡\n\nUkuran: ${res.data.filesize}\n\nLink: ${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
-
-if (text.includes("!twt")){
-const teks = text.replace(/!twt /, "")
-axios.get(`https://mhankbarbar.herokuapp.com/api/twit?url=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
-    let hasil = `Berhasil! silahkan klik link di bawah untuk mendownload hasilnya!\nðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡\n\nSize: ${res.data.filesize}\n\nLink: ${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
-if (text.includes("!tiktok")) {
-const tictoc = text.replace(/!tiktok /, "")
-axios.get(`https://st4rz.herokuapp.com/api/tiktok?url=${tictoc}`).then((res) => {
-     let titoe = `Berhasil!!! Silahkan klik link dibawah ini untuk mendownload hasilnya! \nðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡ðŸ‘‡\n\nJudul: ${res.data.deskripsi} \n\nDurasi: ${res.data.durasi}\n\nNama: ${res.data.nama}\n\nUrl: ${res.data.urlvideo}`;
-conn.sendMessage(id, titoe, MessageType.text);
-})
-}
-if (text.includes("!wikia")){
-const teks = text.replace(/!wikia /, "")
-axios.get(`https://st4rz.herokuapp.com/api/wiki?q=${text}`).then((res) => {
-    let hasil = `Menurut Wikipedia:\n\n${res.data.result}`;
-    conn.sendMessage(id, hasil ,MessageType.text);
-})
-}
-if (text.includes("!sholat")){
-  const teks = text.replace(/!sholat /, "")
-  axios.get(`https://mhankbarbar.herokuapp.com/api/jadwalshalat?daerah=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then ((res) =>{
-  let hasil = `Jadwal sholat di ${teks} hari ini adalah\n\nðŸ‘‰Imsyak : ${res.data.Imsyak}\nðŸ‘‰Subuh : ${res.data.Subuh} WIB\nðŸ‘‰Dzuhur : ${res.data.Dzuhur}WIB\nðŸ‘‰Ashar : ${res.data.Ashar} WIB\nðŸ‘‰Maghrib : ${res.data.Maghrib}\nðŸ‘‰Isya : ${res.data.Isya} WIB\nðŸ‘‰Tengah malam : ${res.data.Dhuha} WIB`;
-  conn.sendMessage(id, hasil, MessageType.text);
-})
-}
 if (text == '!menu'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/id').json()
 var date = new Date();
@@ -797,35 +737,7 @@ if (text.includes("!animepict"))
     
     });
     }
-  else if (text.includes("!tts")) {
-  var teks = text.split("!ttsid ")[1];
-  var path = require('path');
-  var text1 = teks.slice(6);
-  text1 = suara;
-  var suara = text.replace(/!ttsid/g, text1);
-  var filepath = 'mp3/bacot.wav';
-  
-  
-/*
- * save audio file
- */
-
-gtts.save(filepath, suara, function() {
-  console.log(`${filepath} MP3 SAVED!`)
-});
-await new Promise(resolve => setTimeout(resolve, 500));
-
-	if(suara.length > 200){ // check longness of text, because otherways google translate will give me a empty file
-  msg.reply("Text to long, split in text of 200 characters")
-}else{
-
-const buffer = fs.readFileSync(filepath)
-	conn.sendMessage(id , buffer , MessageType.audio);
-
-};
-
-
-}
+ 
 if (text.includes("!lirik")){
 	const teks = text.split("!lirik")[1]
 	axios.get(`http://scrap.terhambar.com/lirik?word=${teks}`).then ((res) => {
@@ -841,11 +753,286 @@ if (text.includes("!alay")){
 	})
 }
 
+//new cmd
 
 
+else if (msg.body.startsWith("!ytmp3 ")) {
+var url = msg.body.split(" ")[1];
+var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+
+const ytdl = require("ytdl-core")
+const { exec } = require("child_process");
+if(videoid != null) {
+   console.log("video id = ",videoid[1]);
+} else {
+    msg.reply("Gabisa.");
+}
+ytdl.getInfo(videoid[1]).then(info => {
+if (info.length_seconds > 3000){
+msg.reply("terlalu panjang.. ")
+}else{
+
+console.log(info.length_seconds)
+
+msg.reply(" Tunggu sebentar kak .. Lagi di proses ☺");
+var YoutubeMp3Downloader = require("youtube-mp3-downloader");
+
+//Configure YoutubeMp3Downloader with your settings
+var YD = new YoutubeMp3Downloader({
+    "ffmpegPath": config.ffmpeg_path, 
+    "outputPath": "./mp3",    // Where should the downloaded and en>
+    "youtubeVideoQuality": "highest",       // What video quality sho>
+    "queueParallelism": 100,                  // How many parallel down>
+    "progressTimeout": 40                 // How long should be the>
+});
+
+YD.download(videoid[1]);
 
 
+YD.on("finished", function(err, data) {
 
+
+var musik = MessageMedia.fromFilePath(data.file);
+
+msg.reply(` 
+ 
+   Mp3 Berhasil di download
+   
+  ----------------------------------
+Nama File : *${data.videoTitle}*
+Nama : *${data.title}*
+Artis : *${data.artist}*
+   ----------------------------------
+`);
+chat.sendMessage(musik);
+});
+YD.on("error", function(error) {
+    console.log(error);
+});
+
+}});
+}
+
+// Youtube Play 
+  else if (msg.body.startsWith("!play ")) {
+var ytdl = require("ytdl-core");
+var hh = msg.body.split("!play ")[1];
+var keyword = hh.replace(/ /g, "+");
+function foreach(arr, func){
+  for(var i in arr){
+    func(i, arr[i]);
+  }
+}
+//////////Calling Async Function//////////
+const id= "";
+
+(async () => {
+var id = await yts.searchYoutube(keyword);
+let result ="";
+
+var teks = ` 
+New Request Song 
+Title 
+${result} `;
+console.log( "New Request Play Song " +id[0])
+ 
+var YoutubeMp3Downloader = require("youtube-mp3-downloader");
+
+//Configure YoutubeMp3Downloader with your settings
+var YD = new YoutubeMp3Downloader({
+    "ffmpegPath": "ffmpeg", 
+    "outputPath": "./mp3",    // Where should the downloaded and en>
+    "youtubeVideoQuality": "highest",       // What video quality sho>
+    "queueParallelism": 100,                  // How many parallel down>
+    "progressTimeout": 2000                 // How long should be the>
+});
+
+//Download video and save as MP3 file
+YD.download(id[0]);
+
+YD.on("finished", function(err, data) {
+
+
+const musik = MessageMedia.fromFilePath(data.file);
+var ehe = ` 
+ 
+ 🎶 Now Playing 🎶
+🔉  *${data.videoTitle}* 
+Youtube Play Songs By InsideHeartz :)
+`;
+let media = MessageMedia.fromFilePath('./zerotwo.jpg');
+	client.sendMessage(msg.from, media, {
+	caption: ehe });
+	chat.sendMessage(musik);
+});
+YD.on("progress", function(data) {
+});
+})();
+}
+
+// Facebook Downloaderelse if (msg.body.startsWith("!fb ")) {
+	else if (msg.body.startsWith("!fb ")) {
+var teks = msg.body.split("!fb ")[1];
+const { exec } = require("child_process");
+var url = "http://api.fdci.se/sosmed/fb.php?url="+ teks;
+axios.get(url)
+  .then((result) => {
+var b = JSON.parse(JSON.stringify(result.data));
+
+ var teks = `
+ Berhasil Mendownload 
+ 
+ Judul = ${b.judul}
+ 
+dah
+ `;
+ 
+exec('wget "' + b.link + '" -O mp4/fbvid.mp4', (error, stdout, stderr) => {
+  let media = MessageMedia.fromFilePath('mp4/fbvid.mp4');
+	client.sendMessage(msg.from, media, {
+	caption: teks });
+	if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+
+    console.log(`stdout: ${stdout}`);
+});
+
+});
+}
+//instagram downloader
+	
+else if (msg.body.startsWith("!ig ")) {
+const imageToBase64 = require('image-to-base64');
+var link = msg.body.split("!ig ")[1];
+var url = "http://api.fdci.se/sosmed/insta.php?url="+ link;
+const { exec } = require("child_process");
+
+function foreach(arr, func){
+  for(var i in arr){
+    func(i, arr[i]);
+  }
+}
+axios.get(url)
+  .then((result) => {
+var b = JSON.parse(JSON.stringify(result.data));
+ console.log(b.data[0].url) 
+  var teks = ` Download Berhasil 
+  `;
+  if(b.url == false){
+	  msg.reply(" Gaada link :P ");
+  }else if( b.data[0][0].type == "foto"){
+	  
+foreach(b.data[0], function(i, v){
+imageToBase64(b.data[0][i].url) // Path to the image
+    .then(
+        (response) => {
+            ; // "cGF0aC90by9maWxlLmpwZw=="
+
+const media = new MessageMedia('image/jpeg', response);
+client.sendMessage(msg.from, media, {
+	caption: teks });
+        }
+    )
+    .catch(
+        (error) => {
+            console.log(error); // Logs an error if there was one
+        }
+    )
+})
+    }else if(b.data[0][0].type == "video"){
+		
+foreach(b.data[0], function(i, v){
+    	exec('wget "' + b.data[0][i].url + '" -O mp4/insta.mp4', (error, stdout, stderr) => {
+
+let media = MessageMedia.fromFilePath('mp4/insta.mp4');
+	client.sendMessage(msg.from, media, {
+	caption: teks });
+	if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+
+    console.log(`stdout: ${stdout}`);
+});
+})
+}
+  
+})
+  .catch((err) => {
+console.log(err);
+  })
+}
+//tts
+ else if (msg.body.startsWith("!tts")) {
+	
+    var texttomp3 = require("text-to-mp3");
+      var fs = require("fs");
+  
+  var suara = msg.body.split("!tts ")[1];
+  var text = suara;
+  var fn = "tts/suara.mp3";
+  
+  
+  
+  
+  if(process.argv.indexOf("-?")!== -1){
+    
+    return;
+  }
+  
+  
+  if(process.argv.indexOf("-t")!== -1)
+    text=suara;
+  
+  if(process.argv.indexOf("-f")!== -1)
+    fn=suara;
+  
+  text = text.replace(/ +(?= )/g,'');//remove all multiple space
+  
+  if(typeof text ===  "undefined" || text === ""
+    || typeof fn === "undefined" || fn === "") { // just if I have a text I'm gona parse
+    
+  }
+  
+  //HERE WE GO
+  texttomp3.getMp3(text, function(err, data){
+    if(err){
+      console.log(err);
+      return;
+    }
+  
+    if(fn.substring(fn.length-4, fn.length) !== ".mp3"){ // if name is not well formatted, I add the mp3 extention
+      fn+=".mp3";
+    }
+    var file = fs.createWriteStream(fn); // write it down the file
+    file.write(data);
+   
+    console.log("MP3 SAVED!");
+    
+  });
+  await new Promise(resolve => setTimeout(resolve, 500));
+  
+    if(text.length > 200){ // check longness of text, because otherways google translate will give me a empty file
+    msg.reply("Text to long, split in text of 200 characters")
+  }else{
+    const media = MessageMedia.fromFilePath(fn);
+  
+    chat.sendMessage(media);
+  
+  }
+  
+  
+  }
 
 
 
