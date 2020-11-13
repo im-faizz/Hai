@@ -835,7 +835,7 @@ YD.on("progress", function(data) {
 }
 
 // Facebook Downloaderelse if (msg.body.startsWith("!fb ")) {
-	else if (msg.body.startsWith("!fb ")) {
+	else if (text.includes("!fb ")) {
 var teks = msg.body.split("!fb ")[1];
 const { exec } = require("child_process");
 var url = "http://api.fdci.se/sosmed/fb.php?url="+ teks;
@@ -937,13 +937,13 @@ console.log(err);
   })
 }
 //tts
- else if (msg.body.startsWith("!tts")) {
+ else if (text.includes("!tts")) {
 	
     var texttomp3 = require("text-to-mp3");
       var fs = require("fs");
   
   var suara = msg.body.split("!tts ")[1];
-  var text= suara;
+  var textt= suara;
   var fn = "tts/suara.mp3";
   
   
@@ -956,14 +956,14 @@ console.log(err);
   
   
   if(process.argv.indexOf("-t")!== -1)
-    text=suara;
+    textt=suara;
   
   if(process.argv.indexOf("-f")!== -1)
     fn=suara;
   
-  text = text.replace(/ +(?= )/g,'');//remove all multiple space
+  textt = textt.replace(/ +(?= )/g,'');//remove all multiple space
   
-  if(typeof text ===  "undefined" || text === ""
+  if(typeof textt ===  "undefined" || textt === ""
     || typeof fn === "undefined" || fn === "") { // just if I have a text I'm gona parse
     
   }
@@ -986,7 +986,7 @@ console.log(err);
   });
   await new Promise(resolve => setTimeout(resolve, 500));
   
-    if(text.length > 200){ // check longness of text, because otherways google translate will give me a empty file
+    if(textt.length > 200){ // check longness of text, because otherways google translate will give me a empty file
     msg.reply("Text to long, split in text of 200 characters")
   }else{
     const media = MessageMedia.fromFilePath(fn);
