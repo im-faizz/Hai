@@ -170,9 +170,6 @@ else if (text == 'TEST')
 {
   conn.sendMessage(id, tambahan.test, MessageType.text);
 }
-else if (text == '!hentai')
-  conn.sendMessage(id, tambahan.hentai, MessageType.text);
-}
 // Fitur
 if(text.includes("!cek")){
 var num = text.replace(/!cek/ , "")
@@ -481,7 +478,7 @@ const get = require('got')
     var meninggal = (body[0]['meninggal']);
     var dirawat = (body[0]['dirawat']);
     console.log(body[0]['name'])
-    conn.sendMessage(id,"’DATA WABAH COVID-19 TERBARU DI INDONESIA”Positif ==> ${positif} \Sembuh ==> ${sembuh} \­Meninggal ==> ${meninggal}\’Dirawat ==> ${dirawat}`, MessageType.text);
+    conn.sendMessage(id,`DATA WABAH COVID-19 TERBARU DI INDONESIA”Positif ==> ${positif} \Sembuh ==> ${sembuh} \­Meninggal ==> ${meninggal}\’Dirawat ==> ${dirawat}`, MessageType.text);
 }
    if (text.includes("!quotes"))
    {
@@ -714,7 +711,64 @@ if (text.includes("!meme"))
     
     });
     }
-
+if (text.includes("!food"))
+   {
+    var items = ["DESSERT", "makanan", "minuman", "makanan mewah", "es cream", "Kue", "es"];
+    var makan = items[Math.floor(Math.random() * items.length)];
+    var url = "https://api.fdci.se/rep.php?gambar=" + makan;
+    
+    axios.get(url)
+      .then((result) => {
+        var n = JSON.parse(JSON.stringify(result.data));
+        var makanan =  n[Math.floor(Math.random() * n.length)];
+        imageToBase64(makanan) 
+        .then(
+            (response) => {
+	var buf = Buffer.from(response, 'base64'); 
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error);
+            }
+        )
+    
+    });
+    }
+	   
+if (text.includes("!wallpaper"))
+   {
+    var items = ["wallpaper", "wallpaper keren", "neon wallpaper", "good wallpaper"];
+    var wall = items[Math.floor(Math.random() * items.length)];
+    var url = "https://api.fdci.se/rep.php?gambar=" + wall;
+    
+    axios.get(url)
+      .then((result) => {
+        var n = JSON.parse(JSON.stringify(result.data));
+        var wallp =  n[Math.floor(Math.random() * n.length)];
+        imageToBase64(wallp) 
+        .then(
+            (response) => {
+	var buf = Buffer.from(response, 'base64'); 
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error);
+            }
+        )
+    
+    });
+    }
+	   
 if (text.includes("!animepict"))
    {
     var items = ["anime girl", "anime cantik", "anime", "loli"];
