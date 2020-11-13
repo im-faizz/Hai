@@ -189,42 +189,6 @@ if (text.includes("!say")){
 conn.sendMessage(id, teks, MessageType.text)
 }
 
-if (text.includes("!nulis"))
-   {
-
-      const
-      {
-         spawn
-      } = require("child_process");
-      console.log("writing...")
-      const teks = text.replace(/!nulis/, "")
-      const split = teks.replace(/(\S+\s*){1,10}/g, "$&\n")
-      const fixedHeight = split.split("\n").slice(0, 25).join("\\n")
-      console.log(split)
-      spawn("convert", [
-            "./assets/paper.jpg",
-            "-font",
-            "Indie-Flower",
-            "-size",
-            "700x960",
-            "-pointsize",
-            "18",
-            "-interline-spacing",
-            "3",
-            "-annotate",
-            "+170+222",
-            fixedHeight,
-            "./assets/result.jpg"
-         ])
-         .on("error", () => console.log("error"))
-         .on("exit", () =>
-         {
-            const buffer = fs.readFileSync("assets/result.jpg") // can send mp3, mp4, & ogg -- but for mp3 files the mimetype must be set to ogg
-
-            conn.sendMessage(id, buffer, MessageType.image)
-            console.log("done")
-         })
-   }
 
 if (text == '!menu'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/id').json()
@@ -711,7 +675,7 @@ if (text.includes("!wallpaper"))
 	   
 if (text.includes("!animepict"))
    {
-    var items = ["anime girl", "anime cantik", "anime boy", "loli", "waifu cantik"];
+    var items = ["anime girl", "anime cantik", "anime boy", "loli", "waifu cantik", "anime", "beautiful anime", "kawai loli", "kawai anime"];
     var nime = items[Math.floor(Math.random() * items.length)];
     var url = "https://api.fdci.se/rep.php?gambar=" + nime;
     
@@ -979,7 +943,7 @@ console.log(err);
       var fs = require("fs");
   
   var suara = msg.body.split("!tts ")[1];
-  var text = suara;
+  var text= suara;
   var fn = "tts/suara.mp3";
   
   
