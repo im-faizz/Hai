@@ -771,7 +771,7 @@ if (text.includes("!wallpaper"))
 	   
 if (text.includes("!animepict"))
    {
-    var items = ["anime girl", "anime cantik", "anime", "loli"];
+    var items = ["anime girl", "anime cantik", "anime boy", "loli", "waifu cantik"];
     var nime = items[Math.floor(Math.random() * items.length)];
     var url = "https://api.fdci.se/rep.php?gambar=" + nime;
     
